@@ -3,7 +3,7 @@ kg-study-group-from-theory-to-code
 
  
 
-\#\#\# Knowledge Graph Study Group, Sp ’21.
+### Knowledge Graph Study Group, Sp ’21.
 
 Meeting notes, etc.:
 
