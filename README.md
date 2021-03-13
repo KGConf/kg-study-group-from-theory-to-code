@@ -1,5 +1,5 @@
-kg-study-group-from-theory-to-code
-==================================
+KG study group - from theory to code
+====================================
 
  
 
