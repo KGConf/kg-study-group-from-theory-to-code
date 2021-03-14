@@ -21,3 +21,5 @@ Space, Morgan & Claypool, 2011.
 
  
 
+### Awesome Semantic Web
+A wonderful curated list of semantic/linked data resources: https://github.com/semantalytics/awesome-semantic-web/blob/master/README.md
