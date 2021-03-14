@@ -15,7 +15,8 @@ https://open.hpi.de/courses/knowledgegraphs2020
 ### Books:
 
 **P. Hitzler, M. Krötzsch, S. Rudolph**: Foundations of Semantic Web
-Technologies, CRC Press, 2009.  https://www.semantic-web-book.org/index.html 
+Technologies, CRC Press, 2009.    
+https://www.semantic-web-book.org/index.html    
 **T. Heath, Ch. Bitzer**: Linked Data - Evolving the Web into a Global Data
 Space, Morgan & Claypool, 2011.
 
