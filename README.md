@@ -15,7 +15,7 @@ https://docs.google.com/spreadsheets/d/1LvoWFUuum93yPZtQC-cm__2woM2mJwAgdD4ZBnVI
 
 **Week 2: Basic Semantic Technologies**
 - Meeting date: March 19, 2021
-- Demo/Share-out: Find examples of RDFa/Turtle syntax in the wild or for work
+- Demo/Share-out: Find examples of RDFa/Turtle syntax in the wild or from work
 
 **Week 3: Querying RDF with SPARQL**
 - Meeting date: March 26, 2021
@@ -45,7 +45,29 @@ https://www.semantic-web-book.org/index.html
 **T. Heath, Ch. Bitzer**: Linked Data - Evolving the Web into a Global Data
 Space, Morgan & Claypool, 2011.
 
+
+### Tutorials
+
+**[Data.world SPARQL Tutorial](https://docs.data.world/tutorials/sparql/)**
+- excellent beginner tutorial as moves quickly through basics with no confusing pre-amble
+- interactive: allows running queries as part of the tutorial against data.world resources
+- does not cover relationship to SQL or describe why certain design decisions were made (e.g. why not keep the syntax more similar to SQL?)
+
+**[Apache Jena SPARQL Tutorial](https://jena.apache.org/tutorials/sparql.html)**: more clunky than the first, but moves into more detail of functions such as FILTER
+
+**StarDog Tutorials**
+- provides data for free
+- examples can be performed in Jena or Rasqal locally (using the sparql or roqet command line utilities to query the data files directly
+- Need to add the PREFIXes to the queries (at least the standard rdf and rdfs):
+	- [PREFIX rdf](http://www.w3.org/1999/02/22-rdf-syntax-ns#)
+	- [PREFIX rdfs](http://www.w3.org/2000/01/rdf-schema#)
+- also can use [https://stardog.studio](https://stardog.studio/) for free, datasets already loaded
+- [Tutorial 1](https://www.stardog.com/tutorials/getting-started-1) has examples of how to accomplish in SQL; starts off with heavy queries, to show example outputs, and then dissects.
+- [OWL Tutorial: New Protege Pizza Tutorial](https://www.michaeldebellis.com/post/new-protege-pizza-tutorial) 
+- [OWL Tutorial: OWL 101](https://www.cambridgesemantics.com/blog/semantic-university/learn-owl-rdfs/owl-101/)
+
 ### Other Helpful Resources
 
 **Awesome Semantic Web**: A wonderful curated list of semantic/linked data resources:    
 https://github.com/semantalytics/awesome-semantic-web/blob/master/README.md
+
