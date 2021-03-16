@@ -4,12 +4,10 @@ KG study group - from theory to code
 
 ### Knowledge Graph Study Group, Sp ’21.  
 
-**Meeting notes, etc.**
+**Meeting notes, etc.**: 
 https://docs.google.com/spreadsheets/d/1LvoWFUuum93yPZtQC-cm__2woM2mJwAgdD4ZBnVI-Uc/edit#gid=1194089826
 
-**Course link**
-Knowledge Graphs --  Prof. Dr. Harald Sack, Dr. Mehwish Alam
-https://open.hpi.de/courses/knowledgegraphs2020
+**Course link**: https://open.hpi.de/courses/knowledgegraphs2020
 
 ### Roster
 **Week 1: Knowledge Graphs in the Web of Data**
