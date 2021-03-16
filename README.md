@@ -13,31 +13,31 @@ https://open.hpi.de/courses/knowledgegraphs2020
 
 ### Roster
 **Week 1: Knowledge Graphs in the Web of Data**
-Meeting date: March 12, 2021
+- Meeting date: March 12, 2021
 
 **Week 2: Basic Semantic Technologies**
-Meeting date: March 19, 2021
-Demo/Share-out: Find examples of RDFa/Turtle syntax in the wild or for work
+- Meeting date: March 19, 2021
+- Demo/Share-out: Find examples of RDFa/Turtle syntax in the wild or for work
 
 **Week 3: Querying RDF with SPARQL**
-Meeting date: March 26, 2021
-Demo: TBD
+- Meeting date: March 26, 2021
+- Demo: TBD
 
 **Week 4: Knowledge Representation with Ontologies**
-Meeting date: April 2, 2021
-Demo: TBD
+- Meeting date: April 2, 2021
+- Demo: TBD
 
 **Week 5: Knowledge Graph Applications**
-Meeting date: April 9, 2021
-Demo: TBD
+- Meeting date: April 9, 2021
+- Demo: TBD
 
 **Week 6: Advanced Knowledge Graph Applications**
-Meeting date: April 16, 2021
-Demo: TBD
+- Meeting date: April 16, 2021
+- Demo: TBD
 
 **What we'll cover next**
-Great suggestion #1
-Awesome suggestion #2
+- Great suggestion #1
+- Awesome suggestion #2
 
 ### Books
 
