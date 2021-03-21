@@ -1,0 +1,13 @@
+
+{ "head": { "link": [], "vars": ["author", "work"] },
+  "results": { "distinct": false, "ordered": true, "bindings": [
+    { "author": { "type": "uri", "value": "http://dbpedia.org/resource/A._J._Healy" }	, "work": { "type": "uri", "value": "http://dbpedia.org/resource/Tommy_Storm_and_the_Galactic_Knights" }},
+    { "author": { "type": "uri", "value": "http://dbpedia.org/resource/A._J._Healy" }	, "work": { "type": "uri", "value": "http://dbpedia.org/resource/Tommy_Storm" }},
+    { "author": { "type": "uri", "value": "http://dbpedia.org/resource/A._S._Patri\u0107" }	, "work": { "type": "uri", "value": "http://dbpedia.org/resource/Black_Rock_White_City" }},
+    { "author": { "type": "uri", "value": "http://dbpedia.org/resource/Lowell_Cunningham" }	, "work": { "type": "uri", "value": "http://dbpedia.org/resource/The_Men_in_Black_(comics)" }},
+    { "author": { "type": "uri", "value": "http://dbpedia.org/resource/Lu_Xun" }	, "work": { "type": "uri", "value": "http://dbpedia.org/resource/Kong_Yiji" }},
+    { "author": { "type": "uri", "value": "http://dbpedia.org/resource/Lu_Xun" }	, "work": { "type": "uri", "value": "http://dbpedia.org/resource/The_True_Story_of_Ah_Q" }},
+    { "author": { "type": "uri", "value": "http://dbpedia.org/resource/Lu_Xun" }	, "work": { "type": "uri", "value": "http://dbpedia.org/resource/A_Madman's_Diary" }},
+    { "author": { "type": "uri", "value": "http://dbpedia.org/resource/Lu_Yao" }	, "work": { "type": "uri", "value": "http://dbpedia.org/resource/Ordinary_World_(novel)" }},
+    { "author": { "type": "uri", "value": "http://dbpedia.org/resource/Lucian" }	, "work": { "type": "uri", "value": "http://dbpedia.org/resource/Dialogues_of_the_Courtesans" }},
+    { "author": { "type": "uri", "value": "http://dbpedia.org/resource/Lucian" }	, "work": { "type": "uri", "value": "http://dbpedia.org/resource/Dialogues_of_the_Gods" }} ] } }
