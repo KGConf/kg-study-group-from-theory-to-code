@@ -16,6 +16,9 @@ https://docs.google.com/spreadsheets/d/1LvoWFUuum93yPZtQC-cm__2woM2mJwAgdD4ZBnVI
 **Week 2: Basic Semantic Technologies**
 - Meeting date: March 19, 2021
 - Demo/Share-out: Find examples of RDFa/Turtle syntax in the wild or from work
+- [Food Ontology OWL syntax](https://raw.githubusercontent.com/FoodOntology/foodon/master/foodon.owl)
+- [Food Ontolgoy Turtle syntax](https://www.bbc.com/ontologies/fo/1.1.ttl)
+- [TerminusDB uses query function relying on Prolog, based on first order logic](https://medium.com/terminusdb/today-we-release-terminusdb-the-database-for-data-people-36cfd3f81d3f)
 
 **Week 3: Querying RDF with SPARQL**
 - Meeting date: March 26, 2021
