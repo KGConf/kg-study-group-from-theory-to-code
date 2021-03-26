@@ -31,7 +31,7 @@ https://docs.google.com/spreadsheets/d/1LvoWFUuum93yPZtQC-cm__2woM2mJwAgdD4ZBnVI
 
 **Week 4: Knowledge Representation with Ontologies**
 - Meeting date: April 2, 2021
-- Demo: TBD
+- Demo: Glenn will share drafted media ontology; Bob will give overview of OWL.
 
 **Week 5: Knowledge Graph Applications**
 - Meeting date: April 9, 2021
@@ -42,8 +42,8 @@ https://docs.google.com/spreadsheets/d/1LvoWFUuum93yPZtQC-cm__2woM2mJwAgdD4ZBnVI
 - Demo: TBD
 
 **What we'll cover next**
-- Great suggestion #1
-- Awesome suggestion #2
+- Deep dive on semantic web tool (Bob)
+- More TBD!
 
 ### Books
 
