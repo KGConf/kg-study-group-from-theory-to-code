@@ -19,7 +19,10 @@ https://docs.google.com/spreadsheets/d/1LvoWFUuum93yPZtQC-cm__2woM2mJwAgdD4ZBnVI
 
 **Week 3: Querying RDF with SPARQL**
 - Meeting date: March 26, 2021
-- Demo: TBD
+- Demo: SPARQL query examples!
+- [Step-by-step instructions for setting up Virtuoso](https://docs.google.com/presentation/d/1mWrCK_24Kw869ND60vIFRUUDzy3zx4x5xyQ9bTB0o1w/edit#slide=id.p)
+- [Querying Wikidata with SPAQRL for Absolute Beginners (Youtube)](https://www.youtube.com/watch?v=kJph4q0Im98)
+- [Marcelo Barbieri's Medium Posts](https://mbarbieri77.medium.com/)
 
 **Week 4: Knowledge Representation with Ontologies**
 - Meeting date: April 2, 2021
