@@ -16,14 +16,22 @@ https://docs.google.com/spreadsheets/d/1LvoWFUuum93yPZtQC-cm__2woM2mJwAgdD4ZBnVI
 **Week 2: Basic Semantic Technologies**
 - Meeting date: March 19, 2021
 - Demo/Share-out: Find examples of RDFa/Turtle syntax in the wild or from work
+- [Food Ontology OWL syntax](https://raw.githubusercontent.com/FoodOntology/foodon/master/foodon.owl)
+- [Food Ontolgoy Turtle syntax](https://www.bbc.com/ontologies/fo/1.1.ttl)
+- [TerminusDB uses query function relying on Prolog, based on first order logic](https://medium.com/terminusdb/today-we-release-terminusdb-the-database-for-data-people-36cfd3f81d3f)
 
 **Week 3: Querying RDF with SPARQL**
 - Meeting date: March 26, 2021
-- Demo: TBD
+- Demo: SPARQL query examples!
+- [DBpedia SPARQL endpoint](https://dbpedia.org/sparql)
+- [Wikidata SPARQL endpoint](https://query.wikidata.org/)
+- [Step-by-step instructions for setting up Virtuoso](https://docs.google.com/presentation/d/1mWrCK_24Kw869ND60vIFRUUDzy3zx4x5xyQ9bTB0o1w/edit#slide=id.p)
+- [Querying Wikidata with SPAQRL for Absolute Beginners (Youtube)](https://www.youtube.com/watch?v=kJph4q0Im98)
+- [Marcelo Barbieri's helpful medium posts](https://mbarbieri77.medium.com/)
 
 **Week 4: Knowledge Representation with Ontologies**
 - Meeting date: April 2, 2021
-- Demo: TBD
+- Demo: Glenn will share drafted media ontology; Bob will give overview of OWL.
 
 **Week 5: Knowledge Graph Applications**
 - Meeting date: April 9, 2021
@@ -34,8 +42,8 @@ https://docs.google.com/spreadsheets/d/1LvoWFUuum93yPZtQC-cm__2woM2mJwAgdD4ZBnVI
 - Demo: TBD
 
 **What we'll cover next**
-- Great suggestion #1
-- Awesome suggestion #2
+- Deep dive on semantic web tool (Bob)
+- More TBD!
 
 ### Books
 
