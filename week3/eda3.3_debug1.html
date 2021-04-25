@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport"  content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="Copyright" content="Copyright &copy; 2021 OpenLink Software">
+<meta name="Keywords"  content="OpenLink Virtuoso Sparql">
+<title>Virtuoso SPARQL Compilation report</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<style>.example { background-color: #ddd; padding: 1em; } </style>
+</head>
+<body>
+<div class="container-fluid">
+
+
+<h3>Virtuoso SPARQL Compilation Report</h3>
+<p>
+
+
+<h5>Original SPARQL query</h5>
+<p>The SPARQL query as it is passed by web page to the SPARQL compiler:</p>
+<pre class="text-monospace example"><code>/*7118f30673eb868dbef7cd7bc2cb593a*/
+sparql {
+#output-format:text/html
+define input:default-graph-uri &lt;http://dbpedia.org&gt;
+
+PREFIX rdf:  &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dbo:  &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbpp:  &lt;http://dbpedia.org/property/&gt;
+
+SELECT count(?predicate) as ?pc ?predicate
+    WHERE {
+    ?subject ?predicate ?object
+    } 
+GROUP BY ?predicate
+HAVING (CONTAINS(str(?predicate),&quot;dbpedia.org/property&quot;))
+ORDER BY desc(?pc)
+
+}</code></pre>
+
+
+<h5>Optimized SPARQL query</h5>
+<p>The SPARQL query after parsing, optimization and converting back into SPARQL</p>
+<pre class="text-monospace example"><code>SELECT   ( COUNT( ?predicate) AS ?pc)
+ ?predicate
+ FROM &lt;http://dbpedia.org&gt;
+ WHERE {  ?subject ?predicate ?object . }
+GROUP BY  ?predicate
+HAVING ( contains( str( ?predicate), &quot;dbpedia.org/property&quot;))
+ORDER BY  DESC ( ?pc)</code></pre>
+
+
+
+<h5>SPARQL query translated to SQL</h5>
+<p>
+<i>For security reasons, code responsible for graph-level security is not generated and some account-specific data are intentionally made wrong.</i>
+<pre class="text-monospace example"><code> SELECT   /*nonBIJ1*/ __ro2sq ( &quot;s_9_0_rbc&quot;.&quot;pc&quot;) AS &quot;pc&quot;,  /*nonBIJ1*/ __ro2sq ( &quot;s_9_0_rbc&quot;.&quot;predicate&quot;) AS &quot;predicate&quot;
+ FROM (SELECT  COUNT (  &quot;s_9_0_t0&quot;.&quot;P&quot;) AS &quot;pc&quot;,
+    __id2in ( &quot;s_9_0_t0&quot;.&quot;P&quot;) AS &quot;predicate&quot;
+  FROM DB.DBA.RDF_QUAD AS &quot;s_9_0_t0&quot;
+  WHERE
+    &quot;s_9_0_t0&quot;.&quot;G&quot; = __i2idn ( __bft( &#39;http://dbpedia.org&#39; , 1))
+  GROUP BY &quot;s_9_0_t0&quot;.&quot;P&quot;
+  HAVING rdf_contains_impl ( DB.DBA.RDF_LONG_OF_SQLVAL ( __bft (__id2in ( &quot;s_9_0_t0&quot;.&quot;P&quot;), 2)),  DB.DBA.RDF_MAKE_LONG_OF_SQLVAL ( &#39;dbpedia.org/property&#39; ))
+  ORDER BY 1 DESC
+OPTION (QUIETCAST)) AS &quot;s_9_0_rbc&quot;</code></pre>
+
+
+
+<h5>SQL execution plan</h5>
+<p>
+<pre class="text-monospace example"><code>  { 
+    Precode:
+      0: DB.DBA.RDF_MAKE_LONG_OF_SQLVAL$28 := Call DB.DBA.RDF_MAKE_LONG_OF_SQLVAL (&lt;c dbpedia.org/property&gt;)
+      7: BReturn 0
+    Subquery 30 
+      { 
+        Fork 67 {  
+            Fork 46 {  
+                From RDF_QUAD_POGS   6.5e+08 rows
+                Key RDF_QUAD_POGS  ASC  (s_9_0_t0.P$35)
+                
+                row specs:  G =  IRI_ID&quot;...dbpedia.org&quot; 
+                
+                END Node
+                After test:
+                  0: __id2in$38 := Call __id2in (s_9_0_t0.P$35)
+                  5: __bft$40 := Call __bft (__id2in$38,  2 )
+                  10: DB.DBA.RDF_LONG_OF_SQLVAL$42 := Call DB.DBA.RDF_LONG_OF_SQLVAL (__bft$40)
+                  17: rdf_contains_impl$44 := Call rdf_contains_impl (DB.DBA.RDF_LONG_OF_SQLVAL$42, DB.DBA.RDF_MAKE_LONG_OF_SQLVAL$28)
+                  22: if ( 0  = rdf_contains_impl$44) then 27 else 26 unkn 27
+                  26: BReturn 1
+                  27: BReturn 0
+                Sort (s_9_0_t0.P$35) -&gt; (inc$50, __id2in$38)
+            }
+            group by read node  
+            (s_9_0_t0.P$35, aggregate$48, __id2in$38)
+            Sort (aggregate$48) -&gt; (__id2in$38)
+        }
+        Key from temp (aggregate$48, __id2in$38)
+        
+        
+        After code:
+          0: pc$31 :=  aggregate$48
+          4: predicate$32 :=  __id2in$38
+          8: BReturn 0
+        Subquery Select (pc$31, predicate$32)
+      }
+    
+    After code:
+      0: pc$86 := Call __ro2sq (pc$31)
+      5: predicate$88 := Call __ro2sq (predicate$32)
+      10: BReturn 0
+    Select (pc$86, predicate$88)
+  }
+</code></pre>
+
+
+
+<h5>Internal optimizer data</h5>
+<p>
+<i>These data are primarily for OpenLink support, to get additional details about the query processing.</i>
+<pre class="text-monospace example"><code>Equivalence class #0 is tightened by variable ?:_::default_12_1, selid &#39;s_9_0&#39; (e.g. changeable outer restriction bits are 0x106)
+Equivalence class #1 is tightened by variable ?:subject, selid &#39;s_9_0&#39; (e.g. changeable outer restriction bits are 0x102)
+Equivalence class #2 is tightened by variable ?:predicate, selid &#39;s_9_0&#39; (e.g. changeable outer restriction bits are 0x102)
+Equivalence class #3 is tightened by variable ?:object, selid &#39;s_9_0&#39; (e.g. changeable outer restriction bits are 0x100)
+Equivalence class #0 is edited by copying value range from outside (e.g. outer restriction bits are 0x186)
+Equivalence class #2 is tightened by variable ?:predicate, selid &#39;s_9_0&#39; (e.g. changeable outer restriction bits are 0x8106)
+SPARQL optimization round #1 is done with no progress, age is stable 6, cannot optimize more
+	QUERY: (line 9) REQUEST TOP NODE (SELECT result-mode):
+  DEFAULT VALMODE FOR RETVALS: SQLVAL
+  FLAGS AND OPTIMIZATION HINTS:  HAS_AGGREGATES
+  RETVALS: ARRAY-OF-LONG OF NODES with 2 children: {
+    (line 9) ALIAS:
+      ALIAS NAME: UNAME &#39;pc&#39;
+      VALUE: (line 9) FUNCALL:
+        FUNCTION NAME: UNAME &#39;SPECIAL::bif:COUNT&#39;
+        AGGREGATE MODE: LONG 1
+        ARGUMENT: (line 9) VARIABLE: exported
+          NAME: UNAME &#39;predicate&#39;	SELECT ID: UNAME &#39;s_9_0&#39;	TABLE ID: LONG 0	EQUIV: LONG 2
+    (line 9) VARIABLE: exported
+      NAME: UNAME &#39;predicate&#39;	SELECT ID: UNAME &#39;s_9_0&#39;	TABLE ID: LONG 0	EQUIV: LONG 2
+   }
+  RETVALS SELECT ID: UNAME &#39;s_9_0&#39;
+  SOURCES: ARRAY OF NODES with 1 children: {
+    (line 4) DATA SOURCE: FROM (default)
+      IRI: UNAME &#39;http://dbpedia.org&#39;
+      EXPN: (line 4) QNAME:
+        IRI: UNAME &#39;http://dbpedia.org&#39;
+   }
+  PATTERN: (line 9) GRAPH PATTERN:WHERE gp
+    MEMBERS: ARRAY OF NODES with 1 children: {
+      (line 12) TRIPLE:
+        GRAPH: (line 12) BLANK NODE: notNULL+ fixed IRI+ reference+; fixed UNAME &#39;http://dbpedia.org&#39;	NAME: UNAME &#39;_::default_12_1&#39;	SELECT ID: UNAME &#39;s_9_0&#39;	TABLE ID: UNAME &#39;s_9_0_t0&#39;	EQUIV: LONG 0
+        SUBJECT: (line 11) VARIABLE: notNULL+ reference+ (subject)
+          NAME: UNAME &#39;subject&#39;	SELECT ID: UNAME &#39;s_9_0&#39;	TABLE ID: UNAME &#39;s_9_0_t0&#39;	EQUIV: LONG 1
+        PREDICATE: (line 11) VARIABLE: notNULL+ IRI+ reference+ exported (predicate)
+          NAME: UNAME &#39;predicate&#39;	SELECT ID: UNAME &#39;s_9_0&#39;	TABLE ID: UNAME &#39;s_9_0_t0&#39;	EQUIV: LONG 2
+        OBJECT: (line 11) VARIABLE: notNULL+ (object)
+          NAME: UNAME &#39;object&#39;	SELECT ID: UNAME &#39;s_9_0&#39;	TABLE ID: UNAME &#39;s_9_0_t0&#39;	EQUIV: LONG 3
+        SELECT ID: UNAME &#39;s_9_0&#39;
+        TABLE ID: UNAME &#39;s_9_0_t0&#39;
+        TRIPLE CASES (1 of them):  &lt;http://www.openlinksw.com/schemas/virtrdf#DefaultQuadMap&gt;
+     }
+    FILTERS: EMPTY ARRAY
+    SELECT ID: UNAME &#39;s_9_0&#39;
+    EQUIVS: 0 1 2 3
+  GROUPINGS: ARRAY OF NODES with 1 children: {
+    (line 13) VARIABLE: exported
+      NAME: UNAME &#39;predicate&#39;	SELECT ID: UNAME &#39;s_9_0&#39;	TABLE ID: LONG 0	EQUIV: LONG 2
+   }
+  HAVING: (line 14) BUILT-IN CALL:contains
+    ARGUMENT: ARRAY OF NODES with 2 children: {
+      (line 14) BUILT-IN CALL:str
+        ARGUMENT: ARRAY OF NODES with 1 children: {
+          (line 14) VARIABLE: exported
+            NAME: UNAME &#39;predicate&#39;	SELECT ID: UNAME &#39;s_9_0&#39;	TABLE ID: LONG 0	EQUIV: LONG 2
+         }
+      (line 14) LITERAL:
+        VALUE: STRING &#39;dbpedia.org/property&#39;
+     }
+  ORDER: ARRAY OF NODES with 1 children: {
+    (line 15) ORDERING (descending):
+      CRITERION: LONG 1
+   }
+
+EQUIVS:
+#0: ( 0 subv (1 bindings, 1 nest.nonnull), 0 recv, 1 gspo, 0 const, 0/0 opt/uap, 0 subq: _::default_12_1 in s_9_0_t0;	front _::default_12_1	qmf: SQLVAL; notNULL! fixed! IRI reference; fixed UNAME &#39;http://dbpedia.org&#39;)
+#1: ( 0 subv (1 bindings, 1 nest.nonnull), 0 recv, 1 gspo, 0 const, 0/0 opt/uap, 0 subq: subject in s_9_0_t0;	front subject	qmf: default-iid; notNULL reference)
+#2: ( 0 subv (1 bindings, 1 nest.nonnull), 0 recv, 1 gspo, 4 const, 0/0 opt/uap, 0 subq: predicate in s_9_0_t0 s_9_0 s_9_0 s_9_0 s_9_0;	front predicate	qmf: default-iid-nonblank; notNULL IRI reference exported)
+#3: ( 0 subv (1 bindings, 1 nest.nonnull), 0 recv, 1 gspo, 0 const, 0/0 opt/uap, 0 subq: object in s_9_0_t0;	front object	qmf: default; notNULL)
+</code></pre>
+</div>
+</body>
+</html>

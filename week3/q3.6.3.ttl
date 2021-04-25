@@ -1,0 +1,7 @@
+@prefix dbp:	<http://dbpedia.org/property/> .
+@prefix dbr:	<http://dbpedia.org/resource/> .
+dbr:Northern_Ireland	dbp:population	1810863 .
+dbr:Ireland	dbp:population	6572728 .
+dbr:Scotland	dbp:population	5313600 .
+dbr:Wales	dbp:population	3063456 .
+dbr:England	dbp:population	53012500 .
